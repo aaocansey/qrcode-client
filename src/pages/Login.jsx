@@ -1,23 +1,20 @@
-import axios from "axios";
-import { useState } from "react";
-import "../App.css";
+import {useState,useContext } from "react";
+import { useNavigate } from 'react-router-dom'; 
+import AuthContext from "../context/AuthProvider";
+import { useLogin } from "../hooks/useLogin";
+
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const { login } = useLogin()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let user = { email, password };
-
-    const response = await axios.post("http://127.0.0.1:3000/login", user);
-    const json = await response.json();
-
-    if (!response.ok) {
-      setError(json.error);
-      console.log(error);
-    }
+    await login(email, password);
+    // navigate('/gen-qrcode');
   };
 
   return (
