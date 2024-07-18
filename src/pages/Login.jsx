@@ -9,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState("");
   // const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const { login } = useLogin()
+  const { login,error } = useLogin()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +42,11 @@ function Login() {
         <div className="form-btn">
           <button>login</button>
         </div>
+        <a href="/signup">New? Signup</a>
       </form>
+      {/* <div>
+        {error}
+      </div> */}
     </div>
   );
 }

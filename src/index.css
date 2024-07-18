@@ -16,7 +16,7 @@ body {
   border: 2px solid rgb(73, 0, 128);
   border-radius: 20px;
   width: 25rem;
-  height: 30rem;
+  height: 35rem;
 }
 
 .signup-container {
@@ -79,9 +79,9 @@ body {
   color: rgb(46, 1, 81);
 }
 
-.signup-btn {
+/* .signup-btn {
   margin-bottom: 50px;
-}
+} */
 
 
 .btn {
@@ -98,3 +98,36 @@ body {
   background-color: rgb(27, 2, 79);
 }
 
+.genCode {
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.genCode form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: rgb(42, 3, 126);
+  font-family: "Poppins", sans-serif;
+}
+
+.genCode input {
+  height: 30px;
+  width: 10rem;
+  border-radius: 10px;
+  border: 2px solid rgb(97, 5, 163);
+  margin-bottom: 10px;
+}
+
+.error-msg {
+  color: rgb(42, 3, 126);
+  font-family: "Poppins", sans-serif;
+  font-size: 8px;
+  word-wrap: break-word;
+  width: 12rem;
+  text-align: center;
+  background-color: aliceblue;
+  margin-top: 10px;
+}

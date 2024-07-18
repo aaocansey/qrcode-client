@@ -5,6 +5,7 @@ import "./index.css";
 import Genqrcode from "./pages/Genqrcode";
 import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthProvider";
+import Signup from "./pages/Signup";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/gen-qrcode",
     element: <Genqrcode />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
   },
 ]);
 

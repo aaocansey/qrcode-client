@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function Signup() {
@@ -7,18 +8,21 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     let user = {username, email, password };
-
-    const response = await axios.post("http://127.0.0.1:3000/signup", user);
-    const json = await response.json();
+    console.log(user);
+    const response = await axios.post("http://localhost:7000/auth/signup", user);
+    const json = await response.data;
 
     if (!response.ok) {
       setError(json.error);
       console.log(error);
+      
     }
+    navigate('/')
   };
 
   return (
@@ -55,6 +59,7 @@ function Signup() {
         <div className="form-btn signup-btn">
           <button>signup</button>
         </div>
+        <a href="/">Already signed up? login</a>
       </form>
     </div>
   );
