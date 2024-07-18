@@ -15,14 +15,13 @@ export const useLogin = () => {
       const response = await axios.post("http://localhost:7000/auth/login", data);
       const json = response.data;
 
-      if (response.data == null) {
+      if (json.data == null) {
         setError("user login unsuccessful");
-      } else {
-        dispatch({ type: "Loggedin", payload: json });
-        console.log(json)
-        navigate("/gen-qrcode");
-      }
-
+        dispatch({ type: "Logout", payload: null });
+      } 
+      dispatch({ type: "Loggedin", payload: json });
+        console.log(json.data)
+        json.data===null?navigate('/'):navigate("/gen-qrcode");
     //   console.log(json);
     } catch (error) {
       console.log(error);

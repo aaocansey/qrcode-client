@@ -25,7 +25,6 @@ function Genqrcode() {
     // Use the token in your API call
     try {
       const response = await axios.get("http://127.0.0.1:7000/app/genqrcode", config)
-      console.log(response);
       setDisplayResponse(response.data);
     } catch (error) {
       console.error(error);

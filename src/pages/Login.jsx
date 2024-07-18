@@ -7,14 +7,12 @@ import { useLogin } from "../hooks/useLogin";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [error, setError] = useState(null);
-  const navigate = useNavigate();
-  const { login,error } = useLogin()
+  const { login,error } = useLogin();
+  const [display, setDisplay] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(email, password);
-    // navigate('/gen-qrcode');
+    email == "" && password == ""?alert('fields cannot be empty'):await login(email, password);
   };
 
   return (
@@ -44,9 +42,9 @@ function Login() {
         </div>
         <a href="/signup">New? Signup</a>
       </form>
-      {/* <div>
+      <div className="login-error">
         {error}
-      </div> */}
+      </div>
     </div>
   );
 }
